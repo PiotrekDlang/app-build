@@ -1,12 +1,9 @@
-# BuildLib
-A building library for simple usage. Targeted for CI.
+# Build Application
+A building tool for simple D programming
 
 Experimental stage 
 
 Can be tested by running the following command:
-dmd "source/draft/build.d" -run examples/dummy_build/build.d
-
-
 
 build.d
 build.csv
@@ -18,7 +15,7 @@ build
 lib:     draft/build.d
 app:     build.d
 out:     build 
-install: build copyToFolder: ~/bin
+install: build copyToFolder: apps
 
 
 
