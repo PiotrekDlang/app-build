@@ -1,0 +1,106 @@
+/*
+ *
+ * files:
+ * 		app.d
+ *
+ * 
+ * rdmd app.d
+ *
+
+-------
+
+project
+    output
+        build_name
+            release_folder
+                documentation
+                    manual.pdf
+                    readme.txt
+                app.exe
+            config
+                build.csv
+            bin
+                obj
+                    draft.o
+                    d.o
+                    app.o
+                    main.o
+                executable 
+                libraries
+            source
+               # lib 1 
+               draft
+                    build.d
+                    command.d 
+               # lib 2
+               d
+                    types.d
+               app
+                    block.d
+               object.d
+               main.d
+    docs 
+    source
+        app
+            logic.d
+            
+        main.d
+    build.csv
+
+ */
+
+
+
+install
+
+install.profile
+		.name: 			terminal
+		.config-ref: 	linux-user-terminal-app
+		.os: 			Ubuntu
+		.description:	Place app in user folder accessed via the PATH envarionment variable
+
+
+
+config
+		.id: linux-user-terminal-app
+		.app.type: terminal
+		.app.name: build
+		.env.use : 
+		.check.path type="ref": app.folder
+		.check.edit
+		
+
+
+install.actions
+	.add.env
+	.add.env.name: path
+	.add.env.mode: terminal-config-file
+
+		   
+default.terminal
+	.app.folder:		path
+	.env.config:		.profile
+	.check.env.path:	app.folder
+
+			
+		useronly
+		check 
+		copy binary to 
+
+
+usage:
+	build install --profile=terminal
+	build install --remote=host --profile=service-update --update-protocol --report
+	build install --config.set="path.to.element:value,path.to.element2:text" --config.newline=";"
+	build 
+	build deploy
+	build test
+	build deploy --profile:config-update
+	build setup
+	build init
+	build update
+	build new
+	build status
+	build clean
+	build check
+	
